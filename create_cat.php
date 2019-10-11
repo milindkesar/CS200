@@ -11,5 +11,12 @@ echo '<tr>';
             echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
     echo '</td>';
 echo '</tr>';
+
+<form method="post" action="">
+    Category name: <input type="text" name="cat_name" />
+    Category description: <textarea name="cat_description" /></textarea>
+    <input type="submit" value="Add category" />
+ </form>
+
 include 'footer.php';
 ?>
