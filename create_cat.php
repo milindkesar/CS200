@@ -21,11 +21,24 @@ if(!$con)
  if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     //the form hasn't been posted yet, display it
-    echo '<form action="" method="post">
-        Category name: <input type="text" name="cat_name" /><br>
-        Category description: <textarea name="cat_description" /></textarea>
-        <input type="submit" value="Add category" />
-     </form>';
+    // echo '<form action="" method="post">
+    //     Category name: <input type="text" name="cat_name" /><br>
+    //     Category description: <textarea name="cat_description" /></textarea>
+    //     <input type="submit" value="Add category" />
+    //  </form>';
+     echo '
+    <form action="" method="post" style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
+    <div class="form-group">
+        <label for="usr">Category Name:</label>
+        <input type="text" class="form-control" name="cat_name" id="usr">
+    </div>
+    <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea name="cat_description" class="form-control" rows="5" id="comment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Category</button>
+    </form>
+     ';
 }
 else
 {
