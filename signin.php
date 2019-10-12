@@ -5,7 +5,7 @@ include_once ('header.php'); ?>
  <!-- include 'header.php'; -->
 
 <?php
-
+session_start();
 //connect.php
 $server = 'localhost';
 $username   = 'root';
