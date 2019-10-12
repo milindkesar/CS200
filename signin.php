@@ -22,7 +22,7 @@ echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     ';
 
- echo '<h3 style="align-center ">Sign in</h3>';
+ echo '<h3>Sign in</h3>';
  
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
@@ -40,7 +40,7 @@ else
         //     Password: <input type="password" name="user_pass">
         //     <input type="submit" value="Sign in" />
         //  </form>';
-         echo '<form style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
+         echo '<form method="post" action="" style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
                   <div class="form-group">
                     <label for="exampleInputUsername1">Email address</label>
                     <input type="text" class="form-control" id="username" name="user_name"  placeholder="Enter Username">

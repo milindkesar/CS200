@@ -2,6 +2,7 @@
 //signin.php
 include_once ('header.php'); ?>
  <!-- include 'header.php'; -->
+session_start();
 <?php
 //signup.php
 // include 'header.php';
@@ -34,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
     //     E-mail: <input type="email" name="user_email">
     //     <input type="submit" value="Add category" />
     //  </form>';
-      echo '<form style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
+      echo '<form method="post" action="" style="padding-top: 5%; width:400px ; margin-left: 40%; margin-right: 40%">
                   <div class="form-group">
                     <label for="exampleInputUsername1">Username</label>
                     <input type="text" class="form-control" id="username" name="user_name"  placeholder="Enter Username">
