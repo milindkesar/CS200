@@ -5,6 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css">
+    
 <div id="footer">
 	<nav id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container-fluid">
