@@ -1,8 +1,10 @@
+ 
 <?php
 //signin.php
+include_once ('header.php'); ?>
+ <!-- include 'header.php'; -->
 
-include 'header.php';
-
+<?php
 
 //connect.php
 $server = 'localhost';
@@ -15,9 +17,12 @@ if(!$con)
     exit('Error: could not establish database connection');
 }
 
+echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    ';
 
-
-echo '<h3>Sign in</h3>';
+ echo '<h3 style="align-center ">Sign in</h3>';
  
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
@@ -30,11 +35,24 @@ else
     {
         /*the form hasn't been posted yet, display it
           note that the action="" will cause the form to post to the same page it is on */
-        echo '<form method="post" action="">
-            Username: <input type="text" name="user_name" />
-            Password: <input type="password" name="user_pass">
-            <input type="submit" value="Sign in" />
-         </form>';
+        // echo '<form method="post" action="">
+        //     Username: <input type="text" name="user_name" />
+        //     Password: <input type="password" name="user_pass">
+        //     <input type="submit" value="Sign in" />
+        //  </form>';
+         echo '<form style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Email address</label>
+                    <input type="text" class="form-control" id="username" name="user_name"  placeholder="Enter Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="user_pass" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            ';
+
     }
     else
     {
@@ -116,6 +134,7 @@ else
         }
     }
 }
+?>
  
-include 'footer.php';
+<?php include 'footer.php';
 ?>
