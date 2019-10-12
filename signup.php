@@ -1,6 +1,10 @@
 <?php
+//signin.php
+include_once ('header.php'); ?>
+ <!-- include 'header.php'; -->
+<?php
 //signup.php
-include 'header.php';
+// include 'header.php';
 //connect.php
 $server = 'localhost';
 $username   = 'root';
@@ -12,7 +16,10 @@ if(!$con)
     exit('Error: could not establish database connection');
 }
 
-
+echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    ';
  
 echo '<h3>Sign up</h3>';
  
@@ -20,13 +27,33 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
-    echo '<form method="post" action="">
-        Username: <input type="text" name="user_name" />
-        Password: <input type="password" name="user_pass">
-        Password again: <input type="password" name="user_pass_check">
-        E-mail: <input type="email" name="user_email">
-        <input type="submit" value="Add category" />
-     </form>';
+    // echo '<form method="post" action="">
+    //     Username: <input type="text" name="user_name" />
+    //     Password: <input type="password" name="user_pass">
+    //     Password again: <input type="password" name="user_pass_check">
+    //     E-mail: <input type="email" name="user_email">
+    //     <input type="submit" value="Add category" />
+    //  </form>';
+      echo '<form style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Username</label>
+                    <input type="text" class="form-control" id="username" name="user_name"  placeholder="Enter Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="user_pass" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" name="user_pass_check" placeholder="Confirm Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputemail1">Email address</label>
+                    <input type="email" class="form-control" id="useremail" name="user_email"  placeholder="Enter Email">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            ';
 }
 else
 {
