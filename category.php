@@ -1,9 +1,19 @@
 <?php
 //create_cat.php
-include 'connect.php';
+
 include 'header.php';
- 
+//connect.php
+$server = 'localhost';
+$username   = 'root';
+$password   = 'Password@2000';
+$database   = 'myforumdb';
+$con=mysqli_connect($server, $username,  $password, $database);
+if(!$con)
+{
+    exit('Error: could not establish database connection');
+}
 //first select the category based on $_GET['cat_id']
+
 $sql = "SELECT
             cat_id,
             cat_name,
@@ -11,24 +21,24 @@ $sql = "SELECT
         FROM
             categories
         WHERE
-            cat_id = " . mysql_real_escape_string($_GET['id']);
+            cat_id = '" . mysqli_real_escape_string($con,$_GET['id'])."'";
  
-$result = mysql_query($sql);
+$result = mysqli_query($con,$sql);
  
 if(!$result)
 {
-    echo 'The category could not be displayed, please try again later.' . mysql_error();
+    echo 'The category could not be displayed, please try again later.' . mysqli_error($con);
 }
 else
 {
-    if(mysql_num_rows($result) == 0)
+    if(mysqli_num_rows($result) == 0)
     {
         echo 'This category does not exist.';
     }
     else
     {
         //display category data
-        while($row = mysql_fetch_assoc($result))
+        while($row = mysqli_fetch_assoc($result))
         {
             echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
         }
@@ -42,9 +52,9 @@ else
                 FROM
                     topics
                 WHERE
-                    topic_cat = " . mysql_real_escape_string($_GET['id']);
+                    topic_cat = '" . mysqli_real_escape_string($con,$_GET['id'])."'";
          
-        $result = mysql_query($sql);
+        $result = mysqli_query($con,$sql);
          
         if(!$result)
         {
@@ -52,7 +62,7 @@ else
         }
         else
         {
-            if(mysql_num_rows($result) == 0)
+            if(mysqli_num_rows($result) == 0)
             {
                 echo 'There are no topics in this category yet.';
             }
@@ -65,7 +75,7 @@ else
                         <th>Created at</th>
                       </tr>'; 
                      
-                while($row = mysql_fetch_assoc($result))
+                while($row = mysqli_fetch_assoc($result))
                 {               
                     echo '<tr>';
                         echo '<td class="leftpart">';
