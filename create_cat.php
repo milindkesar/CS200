@@ -1,43 +1,44 @@
+<!DOCTYPE html>
+<html>
+
 <?php
 //create_cat.php
-include 'connect.php';
-include 'header.php';
-         
-echo '<tr>';
-    echo '<td class="leftpart">';
-        echo '<h3><a href="category.php?id=">Category name</a></h3> Category description goes here';
-    echo '</td>';
-    echo '<td class="rightpart">';                
-            echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
-    echo '</td>';
-echo '</tr>';
 
-<form method="post" action="">
-    Category name: <input type="text" name="cat_name" />
-    Category description: <textarea name="cat_description" /></textarea>
-    <input type="submit" value="Add category" />
- </form>
+include 'header.php';
  
+//connect.php
+$server = 'localhost';
+$username   = 'root';
+$password   = 'Password@2000';
+$database   = 'myforumdb';
+$con=mysqli_connect($server, $username,  $password, $database);
+if(!$con)
+{
+    exit('Error: could not establish database connection');
+}
+
+
  if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     //the form hasn't been posted yet, display it
-    echo '<form method='post' action=''>
-        Category name: <input type='text' name='cat_name' />
-        Category description: <textarea name='cat_description' /></textarea>
-        <input type='submit' value='Add category' />
+    echo '<form action="" method="post">
+        Category name: <input type="text" name="cat_name" /><br>
+        Category description: <textarea name="cat_description" /></textarea>
+        <input type="submit" value="Add category" />
      </form>';
 }
 else
 {
     //the form has been posted, so save it
-    $sql = ìINSERT INTO categories(cat_name, cat_description)
-       VALUES('' . mysql_real_escape_string($_POST['cat_name']) . ì',
-             '' . mysql_real_escape_string($_POST['cat_description']) . ì')';
-    $result = mysql_query($sql);
+    $CAT_NAME=mysqli_real_escape_string($con,$_POST['cat_name']);
+    $CAT_DESCRIPTION=mysqli_real_escape_string($con,$_POST['cat_description']);
+    $sql1 = "INSERT INTO categories(cat_name, cat_description)
+       VALUES('$CAT_NAME','$CAT_DESCRIPTION')";
+    $result = mysqli_query($con,$sql1);
     if(!$result)
     {
         //something went wrong, display the error
-        echo 'Error' . mysql_error();
+        echo 'Error'.mysqli_error($con);
     }
     else
     {
@@ -47,3 +48,4 @@ else
 
 include 'footer.php';
 ?>
+</html>
