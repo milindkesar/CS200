@@ -2,6 +2,7 @@
 //signin.php
 include_once ('header.php'); ?>
  <!-- include 'header.php'; -->
+session_start();
 <?php
 //signup.php
 // include 'header.php';

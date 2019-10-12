@@ -21,9 +21,9 @@
           <a class="navbar-brand ">MyForum</a>
         </div>
         <ul id="menu" class="nav navbar-nav">
-          <li class="item"><a href="/forum/index.php">Home</a></li>
-          <li><a class="item" href="/forum/create_topic.php">Create a Topic</a></li>
-          <li><a class="item" href="/forum/create_cat.php">Create a Category</a></li>
+          <li class="item"><a href="index.php">Home</a></li>
+          <li><a class="item" href="create_topic.php">Create a Topic</a></li>
+          <li><a class="item" href="create_cat.php">Create a Category</a></li>
         </ul>
         <ul  id="userbar" class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span>Hey Example</a></li>
