@@ -22,7 +22,7 @@ echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     ';
 
- echo '<h3 style="align-center ">Sign in</h3>';
+ echo '<h3>Sign in</h3>';
  
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
