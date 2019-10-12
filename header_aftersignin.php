@@ -27,8 +27,9 @@
         </ul>
         <ul  id="userbar" class="nav navbar-nav navbar-right">
         <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span>Hey Example</a></li> -->
-            <li><a id="userbar" href="/signin.php"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
-            <li><a id="userbar" href="/signup.php"><span class="glyphicon glyphicon-log-in"></span> Create An Account</a></li>
+            <li><a id="userbar" href="#"><span class="glyphicon glyphicon-user"></span> Hey Example!</a></li>
+            <li style= "color: #ffffff ; margin: 15px">Not You?</li>
+            <li><a id="userbar" href="/signout.php"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
         </ul>
       </div>
 	  </nav>	 <!-- wrapper -->
