@@ -40,7 +40,7 @@ else
         //     Password: <input type="password" name="user_pass">
         //     <input type="submit" value="Sign in" />
         //  </form>';
-         echo '<form style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
+         echo '<form method="post" action="" style="padding-top: 10%; width:400px ; margin-left: 40%; margin-right: 40%">
                   <div class="form-group">
                     <label for="exampleInputUsername1">Email address</label>
                     <input type="text" class="form-control" id="username" name="user_name"  placeholder="Enter Username">
