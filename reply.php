@@ -1,8 +1,18 @@
 <?php
 //create_cat.php
-include 'connect.php';
+
 include 'header.php';
- 
+//connect.php
+session_start();
+$server = 'localhost';
+$username   = 'root';
+$password   = 'Password@2000';
+$database   = 'myforumdb';
+$con=mysqli_connect($server, $username,  $password, $database);
+if(!$con)
+{
+    exit('Error: could not establish database connection');
+}
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     //someone is calling the file directly, which we don't want
@@ -25,10 +35,10 @@ else
                           post_by) 
                 VALUES ('" . $_POST['reply-content'] . "',
                         NOW(),
-                        " . mysql_real_escape_string($_GET['id']) . ",
-                        " . $_SESSION['user_id'] . ")";
+                        '" . mysqli_real_escape_string($con,$_GET['id']) . "',
+                        '" . $_SESSION['user_id'] . "')";
                          
-        $result = mysql_query($sql);
+        $result = mysqli_query($con,$sql);
                          
         if(!$result)
         {

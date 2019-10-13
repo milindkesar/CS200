@@ -40,20 +40,29 @@ else
     else
     {
         //prepare the table
-        echo '<table border="1">
+        echo '<style>
+		table, th, td {
+  			border: 1px solid black;
+		  	border-collapse: collapse;
+			}
+		th, td {
+  			padding: 15px;
+				}
+			</style>';
+        echo '<table border="1" style="width:80%">
               <tr>
                 <th>Category</th>
-                <th>Last topic</th>
+                <th>Category Description</th>
               </tr>'; 
              
         while($row = mysqli_fetch_assoc($result))
         {               
             echo '<tr>';
-                echo '<td class="leftpart">';
-                    echo '<h3><a href="category.php?id='.$row["cat_id"].'">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
+                echo '<td class="leftpart" width="50%">';
+                    echo '<h3><a href="category.php?id='.$row["cat_id"].'">' . $row['cat_name'] . '</a></h3>';
                 echo '</td>';
-                echo '<td class="rightpart">';
-                            echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
+                echo '<td class="rightpart" width="50%">';
+                            echo "'".$row['cat_description']."'";
                 echo '</td>';
             echo '</tr>';
         }

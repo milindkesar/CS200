@@ -53,6 +53,7 @@ else
             posts.post_content,
             posts.post_date,
             posts.post_by,
+            posts.post_id,
             users.user_id,
            users.user_name
             FROM
@@ -79,7 +80,7 @@ else
             else
             {
                 //prepare the table
-                echo '<table border="1">
+                echo '<table border="1" style="width:80%">
                       <tr>
                         <th>Post Content</th>
                         <th>Created at</th>
@@ -90,17 +91,30 @@ else
                 {    
 
                     echo "<tr>";
-                        echo "<td>";
+                        echo "<td width='50%'>";
                             echo "'".$row['post_content']."'";
                         echo "</td>";
-                        echo "<td>";
+                        echo "<td width='25%'>";
                             echo date('d-m-Y', strtotime($row['post_date']));
                         echo "</td>";
-                        echo "<td>";
+                        echo "<td width='25%'>";
                             echo "'".$row['user_name']."'";
                         echo "</td>";
                     echo "</tr>";
+
                 }
+
+        
+        echo '<form action = "reply.php?id='.$_GET['id'].'" method = "post">
+         
+         
+         <textarea rows = "5" cols = "50" name = "reply-content" id="reply-content">
+            Enter reply
+         </textarea>
+         
+         <input type = "submit" value = "submit" />
+      </form>';
+
             }
         }
     }
