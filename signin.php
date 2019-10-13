@@ -1,7 +1,13 @@
  
 <?php
 //signin.php
-include_once ('header.php'); ?>
+session_start();
+if($_SESSION['signed_in']==TRUE){
+    include 'header_aftersignin.php';
+}
+else{
+include 'header.php';
+} ?>
  <!-- include 'header.php'; -->
 
 <?php
