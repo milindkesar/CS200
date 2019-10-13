@@ -1,9 +1,13 @@
 <?php
 //create_cat.php
-
-include 'header.php';
-
 session_start();
+if($_SESSION['signed_in']==TRUE){
+    include 'header_aftersignin.php';
+}
+else{
+include 'header.php';
+}
+
 
 //connect.php
 $server = 'localhost';
