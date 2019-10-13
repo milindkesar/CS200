@@ -75,7 +75,7 @@ else
             else
             {
                 //prepare the table
-                echo '<table border="1">
+                echo '<table border="1" style="width:80%">
                       <tr>
                         <th>Topic</th>
                         <th>Created at</th>
@@ -84,10 +84,10 @@ else
                 while($row = mysqli_fetch_assoc($result))
                 {               
                     echo '<tr>';
-                        echo '<td class="leftpart">';
+                        echo '<td class="leftpart" width="60%">';
                             echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
                         echo '</td>';
-                        echo '<td class="rightpart">';
+                        echo '<td class="rightpart" width="40%">';
                             echo date('d-m-Y', strtotime($row['topic_date']));
                         echo '</td>';
                     echo '</tr>';
